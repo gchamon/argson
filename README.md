@@ -62,12 +62,15 @@ Used when there is need to manipulate the instance of `ArgumentParser` and the a
 *Returns*: Tuple[ArgumentParser, List[string]]. The instance of ArgumentParser and a list of the remaining arguments to be parsed. If the return value is assigned like `argument_parser, remaining_args = argson.parse_config_file()` the remaining args can be then parsed as in `arguments = argument_parser.parse_args(remaining_args)`, which is basically what `parse_file_and_arguments` does.
 
 **config_file**
+
 A json file containing an array of objects with at least one key called `flags`. Those are the flags with which the program will be called in "hyphen-case" starting with `--`, like in the example. Extra keys can be passed to express the flag behaviour or help string that will be displayed when the program is called with `--help`. Those are the same attributes that can be passed to [ArgumentParser.add_argument](https://docs.python.org/3/library/argparse.html#the-add-argument-method)
 
 **self_file**
+
 A json file containing information about the main ArgumentParser instance. Those are the same attributes supported by [argparse.ArgumentParser](https://docs.python.org/3/library/argparse.html#argumentparser-objects)
 
 **defaults_file**
+
 A json file with the default values of the flags in `snake_case`. That is, if an argument has a flag `string-to-parse`, the default value must be read as `string_to_parse`. Refer to the example above.
 
 ### why decouple configs_file and defaults_file?
