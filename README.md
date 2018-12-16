@@ -6,6 +6,8 @@ Deploy arguments into a python program from a JSON config file
 ## Installation
 `python3 setup.py install`
 
+Currently not supporting Python 2. Should work on all Python 3 versions. Tested with Python 3.7.1
+
 ## Basic usage
 **config/arguments.json**
 ```
