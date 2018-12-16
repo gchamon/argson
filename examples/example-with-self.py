@@ -4,8 +4,7 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 
 
 def main():
-    arguments = argson.parse_file_and_arguments(
-        'config/example.json', working_dir=PATH, no_builtins=True, verbose=True)
+    arguments = argson.parse_file_and_arguments('config/example.json', self_file='config/self-example.json', working_dir=PATH)
 
     if arguments.test is True:
         print("test flag set")

@@ -1,4 +1,7 @@
 import argson
+import os
+PATH = os.path.dirname(os.path.realpath(__file__))
+
 
 def main():
     arguments = argson.parse_file_and_arguments('examples/config/example.json')

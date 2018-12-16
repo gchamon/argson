@@ -1,8 +1,11 @@
 
 import argson
+import os
+PATH = os.path.dirname(os.path.realpath(__file__))
+
 
 def main():
-    arguments = argson.parse_file_and_arguments('examples/config/example.json', no_builtins=True)
+    arguments = argson.parse_file_and_arguments('config/example.json', working_dir=PATH, no_builtins=True)
 
     if arguments.test is True:
         print("test flag set")
