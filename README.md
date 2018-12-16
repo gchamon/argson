@@ -1,10 +1,10 @@
 # argson
 Deploy arguments into a python program from a JSON config file
 
-## installation
+## Installation
 `python3 setup.py install`
 
-## basic usage
+## Basic usage
 **config/arguments.json**
 ```
 [
@@ -31,7 +31,7 @@ print(arguments.string_to_print)
 
 `$ python main.py --string bar # -> bar`
 
-## documentation
+## Documentation
 **argson.parse_file_and_arguments**
 
 Used to automatically parse the arguments file, self file and defaults file, generating an object with the flags from the arguments file
