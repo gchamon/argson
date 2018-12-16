@@ -1,0 +1,6 @@
+[
+    {
+        "args": ["--test"],
+        "action": "store_true"
+    }
+]
