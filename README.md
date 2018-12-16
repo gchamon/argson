@@ -37,6 +37,7 @@ print(arguments.string_to_print)
 Used to automatically parse the arguments file, self file and defaults file, generating an object with the flags from the arguments file
 
 *Arguments*:
+
 | Argument  | Type | Default | Description |
 | - | - | - | - |
 | config_file | str | config/arguments.json | where arguments are read |
