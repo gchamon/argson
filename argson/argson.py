@@ -1,13 +1,15 @@
 
-from typing import Callable, Union, Tuple, List
 import argparse
 import json
 import os
+from typing import Callable, List, Tuple, Union
+
+DEFAULT_ARGUMENTS_FILE = "config/arguments.json"
 DEFAULT_DEFATULS_FILE = "config/defaults.json"
 DEFAULT_SELF_FILE = "config/self.json"
 
 
-def parse_file_and_arguments(config_file: Union[str, None],
+def parse_file_and_arguments(config_file: str = DEFAULT_ARGUMENTS_FILE,
                              self_file: str = DEFAULT_SELF_FILE,
                              defaults_file: str = DEFAULT_DEFATULS_FILE,
                              working_dir: str = os.getcwd(),
@@ -24,7 +26,7 @@ def parse_file_and_arguments(config_file: Union[str, None],
     return arguments
 
 
-def parse_config_file(config_file: Union[str, None],
+def parse_config_file(config_file: str = DEFAULT_ARGUMENTS_FILE,
                       self_file: str = DEFAULT_SELF_FILE,
                       defaults_file: str = DEFAULT_DEFATULS_FILE,
                       working_dir: str = os.getcwd(),
@@ -73,7 +75,7 @@ def get_argument_parser(builtin_parser, self_info, defaults, load_path, config_f
                                               **self_info)
     argument_parser.set_defaults(**defaults)
 
-    arguments_filename = config_file if config_file is not None else "config/arguments.json"
+    arguments_filename = config_file if config_file is not None else 
     arguments_dict = load_configuration_json(
         load_path, arguments_filename, strict=True)
 
