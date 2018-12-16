@@ -1,11 +1,11 @@
 [
     {
-        "args": ["--test"],
+        "flags": ["--test"],
         "action": "store_true",
         "help": "test flag"
     },
     {
-        "args": ["--string-to-print"],
+        "flags": ["--string-to-print"],
         "help": "sets a string to print when used with example-with-defaults.py"
     }
 ]

@@ -79,7 +79,7 @@ def get_argument_parser(builtin_parser, self_info, defaults, load_path, config_f
         load_path, config_file, strict=True)
 
     for argument_config in arguments_dict:
-        arg_flags = argument_config.pop("args", None)
+        arg_flags = argument_config.pop("flags", None)
         argument_parser.add_argument(
             *arg_flags, **argument_config)
 
