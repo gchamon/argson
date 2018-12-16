@@ -70,3 +70,15 @@ A json file with the default values of the flags in `snake_case`. That is, if an
 
 ### why decouple configs_file and defaults_file?
 It is best to decouple those files so we can programatically select the defaults source, maintaining the same configurations for the flags. That is sometimes necessary when deploying scripts that have different defaults when running in development and in production environments.
+
+### Contributing
+
+* fork and clone this repo
+* install pipenv
+* `pipenv install`
+* code like there is no tomorrow
+* submit PR
+* ??
+* we profit together
+
+Open for suggestions!
