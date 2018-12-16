@@ -2,7 +2,7 @@
 import argson
 
 def main():
-    arguments = argson.parse_arguments('examples/config/example.json', no_builtins=True)
+    arguments = argson.parse_file_and_arguments('examples/config/example.json', no_builtins=True)
 
     if arguments.test is True:
         print("test flag set")
