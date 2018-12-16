@@ -33,6 +33,8 @@ def parse_config_file(config_file: Union[str, None],
 
     if no_builtins is False:
         defaults_file = builtin_flags.defaults
+        self_file = builtin_flags.self_config
+        verbose = builtin_flags.verbose
 
     defaults, self_info = [load_configuration_json(working_dir, file_name, verbose)
                            for file_name in [defaults_file, self_file]]
@@ -49,6 +51,16 @@ def parse_builtins(no_builtins, default_defaults_file) -> Tuple[argparse.Argumen
             type=str,
             help="sets where defaults are read from",
             default=default_defaults_file)
+        config_file_parser.add_argument(
+            "--verbose",
+            action="store_true",
+            help="sets verbose mode")
+        config_file_parser.add_argument(
+            "--self-config",
+            type=str,
+            help="sets file containing self information like version. Exposes all configurations supported by argparse.ArgumentParser constructor",
+            default=False)
+        
 
     builtin_flags, remaining_args = config_file_parser.parse_known_args()
     return config_file_parser, builtin_flags, remaining_args
