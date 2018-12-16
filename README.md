@@ -53,13 +53,13 @@ Used to automatically parse the arguments file, self file and defaults file, gen
 
 *Returns*: object with attributes from `config_file` flags
 
-**argson.parse_file_and_arguments**
+**argson.parse_config_file**
 
 Used when there is need to manipulate the instance of `ArgumentParser` and the array of remaining arguments to parse
 
 *Arguments*: same as `argson.parse_file_and_arguments`
 
-*Returns*: Tuple[ArgumentParser, List[string]]. The instance of ArgumentParser and a list of the remaining arguments to be parsed.
+*Returns*: Tuple[ArgumentParser, List[string]]. The instance of ArgumentParser and a list of the remaining arguments to be parsed. If the return value is assigned like `argument_parser, remaining_args = argson.parse_config_file()` the remaining args can be then parsed as in `arguments = argument_parser.parse_args(remaining_args)`, which is basically what `parse_file_and_arguments` does.
 
 **config_file**
 A json file containing an array of objects with at least one key called `flags`. Those are the flags with which the program will be called in "hyphen-case" starting with `--`, like in the example. Extra keys can be passed to express the flag behaviour or help string that will be displayed when the program is called with `--help`. Those are the same attributes that can be passed to [ArgumentParser.add_argument](https://docs.python.org/3/library/argparse.html#the-add-argument-method)
