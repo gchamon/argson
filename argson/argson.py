@@ -1,8 +1,11 @@
-
 import argparse
 import json
+import logging
 import os
-from typing import Callable, List, Tuple, Union
+from typing import List, Tuple
+
+logger = logging.getLogger()
+logger.setLevel(logging.ERROR)
 
 DEFAULT_ARGUMENTS_FILE = "config/arguments.json"
 DEFAULT_DEFAULTS_FILE = "config/defaults.json"
@@ -48,7 +51,8 @@ def parse_config_file(config_file: str = DEFAULT_ARGUMENTS_FILE,
     return argument_parser, remaining_args
 
 
-def parse_builtins(no_builtins, default_self_file, default_defaults_file) -> Tuple[argparse.ArgumentParser, object, List[str]]:
+def parse_builtins(no_builtins, default_self_file, default_defaults_file) -> Tuple[
+    argparse.ArgumentParser, object, List[str]]:
     config_file_parser = argparse.ArgumentParser(add_help=False)
     if no_builtins is False:
         config_file_parser.add_argument(
@@ -78,8 +82,19 @@ def get_argument_parser(builtin_parser, self_info, defaults, load_path, config_f
     arguments_dict = load_configuration_json(
         load_path, config_file, strict=True)
 
+    supported_types = {
+        "float": float,
+        "int": int,
+        "str": str
+    }
+
     for argument_config in arguments_dict:
         arg_flags = argument_config.pop("flags", None)
+
+        if "type" in argument_config:
+            argument_config["type"] = supported_types.get(argument_config["type"],
+                                                          globals()[argument_config["type"]])
+
         argument_parser.add_argument(
             *arg_flags, **argument_config)
 
