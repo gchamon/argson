@@ -92,8 +92,10 @@ def get_argument_parser(builtin_parser, self_info, defaults, load_path, config_f
         arg_flags = argument_config.pop("flags", None)
 
         if "type" in argument_config:
-            argument_config["type"] = supported_types.get(argument_config["type"],
-                                                          globals()[argument_config["type"]])
+            if argument_config["type"] in supported_types:
+                argument_config["type"] = supported_types.get(argument_config["type"])
+            else:
+                argument_config["type"] = globals()[argument_config["type"]]
 
         argument_parser.add_argument(
             *arg_flags, **argument_config)
