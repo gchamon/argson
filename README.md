@@ -81,8 +81,8 @@ It is best to decouple those files so we can programatically select the defaults
 ### Contributing
 
 * fork and clone this repo
-* install pipenv
-* `pipenv install`
+* install poetry
+* `poetry install`
 * code like there is no tomorrow
 * submit PR
 * ??
