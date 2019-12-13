@@ -1,13 +1,14 @@
 import setuptools
+import toml
 
-from argson import __version__
+pyproject = toml.load("pyproject.toml")
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="argson",
-    version=__version__,
+    version=pyproject["tool"]["poetry"]["version"],
     author="Gabriel Chamon",
     author_email="gchamon@live.com",
     description="Manage arguments from a JSON file",
