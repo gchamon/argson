@@ -1,11 +1,12 @@
 [tool.poetry]
 name = "argson"
-version = "0.2.0"
+version = "0.3.0"
 description = "Declare program arguments from JSON"
 authors = ["Gabriel Chamon Araujo <gchamon@live.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
+toml = "^0.10.0"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.4.4"
